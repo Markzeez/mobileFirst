@@ -7,6 +7,7 @@ import { fetchMovies } from '@/app/Service/api'
 import MoviesCard from '../Component/MovieCard'
 import { icons } from '@/constants/icons'
 import SearchBar from '../Component/SearchBar'
+import { updateSearchCount } from '@/app/Service/appwrite'
 
 const Search = () => {
 
@@ -23,9 +24,13 @@ const {
 }), false)
 
 useEffect(() => {
+  
   const timeoutId = setTimeout(async () => {
-  if(searchQuery.trim()) {
-    await loadMovies();
+    if(searchQuery.trim()) {
+      await loadMovies();
+      
+      if(movies?.length > 0 && movies?.[0])
+    await updateSearchCount(searchQuery, movies[0]);
   } else {
     reset()
   }

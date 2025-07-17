@@ -14,7 +14,7 @@ import { images } from '@/constants/images';
 // import { icons } from '@/assets/icons';
 
 
-const TabIcon = ({ focused, icon, title }: any) => {
+const TabIcon = ({ focused, icons, title }: any) => {
   if (focused) {
     return (
       <ImageBackground
