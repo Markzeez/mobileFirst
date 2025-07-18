@@ -67,7 +67,7 @@ const Index = () => {
               value=""
               onChangeText={() => {}}
               onPress={() => {
-                router.push("/search");
+                router.push("/Search");
               }}
               placeholder="Search for a movie"
             />
